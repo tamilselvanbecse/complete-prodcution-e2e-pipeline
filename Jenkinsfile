@@ -28,6 +28,13 @@ pipeline{
                 sh "mvn test"
             }            
         }
+        stage("Sonarqube Analysis"){
+            steps {
+                withSonarQubeEnv(credentialsId: 'sonarqube') {
+                    sh "mvn sonar:sonar"
+            }            
+        }
+
 
     }
 }
