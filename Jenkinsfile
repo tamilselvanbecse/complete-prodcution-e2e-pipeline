@@ -15,9 +15,9 @@ pipeline{
         }
         stage("checkout SCM"){
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/tamilselvanbecse/complete-prodcution-e2e-pipeline']])
-            }
-
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/tamilselvanbecse/complete-prodcution-e2e-pipeline']])
+            }            
         }
+
     }
 }
