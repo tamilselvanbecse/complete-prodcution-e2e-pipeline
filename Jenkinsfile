@@ -18,6 +18,16 @@ pipeline{
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/tamilselvanbecse/complete-prodcution-e2e-pipeline']])
             }            
         }
+        stage(" Build the application"){
+            steps {
+                sh "mvn clean package"
+            }            
+        }
+        stage("Test the application SCM"){
+            steps {
+                sh "mvn test"
+            }            
+        }
 
     }
 }
