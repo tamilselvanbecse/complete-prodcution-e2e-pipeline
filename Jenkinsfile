@@ -34,7 +34,6 @@ pipeline{
                     sh "mvn sonar:sonar"
             }            
         }
-
-
     }
+}
 }
