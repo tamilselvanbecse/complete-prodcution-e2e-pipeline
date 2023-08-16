@@ -5,7 +5,6 @@ pipeline{
     tools{
         jdk 'Java17'
         maven 'Maven3'
-        JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
     }
     environment {
         APP_NAME = "complete-prodcution-e2e-pipeline"
@@ -14,7 +13,8 @@ pipeline{
         DOCKER_PASS = 'dockerhub'
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
-        JENKINS_API_TOKEN = "JENKINS_API_TOKEN"
+        JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
+
     }
     stages{
         stage("Cleanup Workspace"){
